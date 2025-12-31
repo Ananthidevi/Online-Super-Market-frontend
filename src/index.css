@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+
+.image{
+    background-image: url("https://images.rawpixel.com/image_social_landscape/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm0yMjJiYXRjaDUta3VsLTM2XzEuanBn.jpg");                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+    width:50vw;
+    background-size: cover;
+    background-position: center;
+   position: fixed;
+    left: 15px;
+    bottom: 10px;
+    top: 10px;
+    right: 20px;
+}
