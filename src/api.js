@@ -1,0 +1,1 @@
+export const API = "https://online-super-market-backend.onrender.com"

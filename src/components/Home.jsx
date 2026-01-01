@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-// import { API } from '../api';
+ import { API } from '../api';
 
 function Home() {
     const [products, setProducts] = useState([]);
@@ -17,7 +17,7 @@ function Home() {
 
     const allProducts = async () => {
         try {
-            const response = await axios.get("http://localhost:8081/product/")
+            const response = await axios.get(`${API}/product`)
             setProducts(response.data.data);
             
         } catch (err) {

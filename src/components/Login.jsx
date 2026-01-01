@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { BaggageClaim } from 'lucide-react';
 
 import {jwtDecode} from "jwt-decode"  //for using user and admin login 
+import {API} from "../api";
 
 // http://localhost:8081/auth/login
 
@@ -25,7 +26,7 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try{
-      const response = await axios.post("http://localhost:8081/auth/login", form);
+      const response = await axios.post(`${API}/auth/login`, form);
       localStorage.setItem("token", response.data.token);
      const decoded = jwtDecode(response.data.token);
      if(decoded.role === "admin"){

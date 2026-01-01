@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate , Link} from 'react-router-dom';
-
+import {API} from '../api';
 
 
 function Dashboard() {
@@ -21,7 +21,7 @@ function Dashboard() {
    
 
     try {
-      const response = await axios.post("http://localhost:8081/product/", form, {
+      const response = await axios.post(`${API}/product`, form, {
         headers: {
           Authorization: `Bearer ${token}` //token from Application local storage
         }
@@ -38,7 +38,7 @@ function Dashboard() {
 
   const allProducts = async (e) => {
     try {
-      const response = await axios.get("http://localhost:8081/product/")
+      const response = await axios.get(`${API}/product/`)
       setProducts(response.data.data);
     } catch (err) {
       console.error(err.message);
@@ -71,10 +71,10 @@ function Dashboard() {
       <h2 className='text-2xl font-bold mb-8 text-pink-800 '>Click here</h2>
       <nav className='space y-4'>
         <ul className='font-family-sans-serif'>
-        <li className='block hover:text-yellow-300 text-xl font-semibold' href=""> <Link to = "/dashboard">Dashboard</Link></li> 
-         <li className='block hover:text-yellow-300 text-xl font-semibold' href=""> <Link to = "/register">Register</Link></li>
-       <li className='block hover:text-yellow-300 text-xl font-semibold' href=""> <Link to = "/login">Login</Link></li>
-        <li className='block hover:text-pink-300 text-xl font-semibold' href=""> <Link to = "/home">Products</Link></li> 
+        <li className='block hover:text-yellow-300 text-xl font-semibold' > <Link to = "/dashboard">Dashboard</Link></li> 
+         <li className='block hover:text-yellow-300 text-xl font-semibold'> <Link to = "/register">Register</Link></li>
+       <li className='block hover:text-yellow-300 text-xl font-semibold' > <Link to = "/login">Login</Link></li>
+        <li className='block hover:text-pink-300 text-xl font-semibold' > <Link to = "/home">Products</Link></li> 
         
         </ul>
       </nav>
@@ -108,7 +108,7 @@ function Dashboard() {
                   {
                     products.map(data => (
 
-                      <div className='mr-10'>
+                     
                         <li className='flex  justify-between items-center mb-5  pb-2' key={data._id}>
 
 
@@ -126,7 +126,7 @@ function Dashboard() {
                           </div>
 
                         </li>
-                      </div>
+                    
 
                     ))
                   }
