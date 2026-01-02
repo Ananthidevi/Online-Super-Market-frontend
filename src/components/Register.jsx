@@ -19,14 +19,11 @@ function Register() {
     setForm({...form, [e.target.name]: e.target.value});
   }
 
-  const handleRegister = async (e) => {
+  const handleRegisters = async(e) => {
     e.preventDefault();
-  
-await axios.post(`${API}/auth/register`, form);
+   await axios.post(`${API}/auth/register`, form);
     navigate("/");
-   
-    
-  }
+   };
 
   return (
      <div className="row">
@@ -37,7 +34,7 @@ await axios.post(`${API}/auth/register`, form);
           <p className='text-5xl font-bold text-center mt-5 mb-50 '>Welcome to ...</p>
       <p  className='text-xl font-bold text-center items-center mb-50 '> Delivering the essentials straight to your home</p>
       <h2 className='text-xl font-bold mb-4 col-8 ml-250'>Register Form</h2>
-      <form onSubmit={handleRegister} className='space-y-4 col-12 ml-250'>
+      <form onSubmit={handleRegisters} className='space-y-4 col-12 ml-250'>
         <input onChange={handleChange} name='username' className='border p-2 mb-2 w-full rounded-md' type="text" placeholder='John' />
         <input onChange={handleChange} name='email' className='border p-2 w-full  mb-2 rounded-md' type="email" placeholder='john@mail.com' />
         <input onChange={handleChange} name='password' className='border p-2 w-full mb-2  rounded-md' type="password" placeholder='*****' />
