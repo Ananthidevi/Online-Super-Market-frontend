@@ -19,11 +19,11 @@ function Register() {
     setForm({...form, [e.target.name]: e.target.value});
   }
 
-  const handleRegisters = async(e) => {
+  async function handleRegisters(e) {
     e.preventDefault();
-   await axios.post(`${API}/auth/register`, form);
+    await axios.post(`${API}/auth/register`, form);
     navigate("/");
-   };
+  }
 
   return (
      <div className="row">
