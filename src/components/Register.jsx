@@ -23,7 +23,7 @@ function Register() {
     e.preventDefault();
     await axios.post(`${API}/auth/register`, form);
     navigate("/");
-  }
+  };
 
   return (
      <div className="row">
