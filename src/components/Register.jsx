@@ -1,9 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { BaggageClaim } from 'lucide-react';
-import {API} from '../api';
-
+import { API } from '../api';
 
 function Register() {
   const [form, setForm] = useState({
@@ -15,43 +13,51 @@ function Register() {
   });
   const navigate = useNavigate();
 
-
   const handleChange = (e) => {
     setForm({...form, [e.target.name]: e.target.value});
   }
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    await axios.post(`${API}/auth/register`, form);
+     await axios.post(`${API}/auth/register`, form);
     navigate("/");
-  }
-
- 
+  };
 
   return (
-     <div className="row">
-    <div className=' image '>
-      <BaggageClaim size={40} color="#ff0000" strokeWidth={2} className='mt-3'/>
-      
-    <div className='p-6 max-w-sm mx-auto' >
-          <p className='text-5xl font-bold text-center mt-5 mb-50 '>Welcome to ...</p>
-      <p  className='text-xl font-bold text-center items-center mb-50 '> Delivering the essentials straight to your home</p>
-      <h2 className='text-xl font-bold mb-4 col-8 ml-250'>Register Form</h2>
-      <form onSubmit={handleRegister} className='space-y-4 col-12 ml-250'>
-        <input onChange={handleChange} name='username' className='border p-2 mb-2 w-full rounded-md' type="text" placeholder='John' />
-        <input onChange={handleChange} name='email' className='border p-2 w-full  mb-2 rounded-md' type="email" placeholder='john@mail.com' />
-        <input onChange={handleChange} name='password' className='border p-2 w-full mb-2  rounded-md' type="password" placeholder='*****' />
-        <input onChange={handleChange} name='mobilenumber' className='border p-2  mb-2 w-full rounded-md' type="number" placeholder='123456789' />
-        <select onChange={handleChange} className='border p-2 w-full rounded-md mb-2' name='role'>
-          <option value="user">User</option>
-          <option value="admin">Admin</option>
+    <div className='bg-lime-300 h-150 w-full'>
+    <div className='p-6  max-w-sm mx-auto mt-5 bg-cyan-200' >
+      <h2 className='text-xl font-bold mb-4 text-center'>Register Form</h2>
+      <form onSubmit={handleRegister} className='space-y-4'>
+       <div className='flex gap-5'>
+         <label className='text-xl font-semibold' name='username'>Username</label>
+        <input onChange={handleChange} name='username' className='border p-2 w-full rounded-md' type="text" placeholder='Enter username' />
+       
+       </div>
+       <div  className='flex gap-15'>
+         <label  className='text-xl font-semibold'  name='email'>Email Id</label>
+        <input onChange={handleChange} name='email' className='border p-2 w-full rounded-md' type="email" placeholder='enter email id' />
+       </div>
+        <div  className='flex gap-5'>
+          <label  className='text-xl font-semibold'  name='password'>Password</label>
+        <input onChange={handleChange} name='password' className='border p-2 w-full rounded-md' type="password" placeholder='enter password' />
+        </div>
+       <div  className='flex gap-8'>
+         <label  className='text-xl font-semibold'  name='mobilenumber'>Number</label>
+        <input onChange={handleChange} name='mobilenumber' className='border p-2 w-full rounded-md' type="number" placeholder='enter mobilenumber' />
+       </div>
+       <div  className='flex gap-16'>
+         <label  className='text-xl font-semibold'  name='role'>Role</label>
+        <select onChange={handleChange} className='border p-2 w-full rounded-md' name="role">
+          <option value="user">user</option>
+          <option value="admin">admin</option>
         </select>
-        <button type='submit' className='bg-black text-white w-full p-2 rounded-md mb-2'>Register</button>
+       </div>
+        <button type='submit' className='bg-black text-white w-full p-2 rounded-md cursor-pointer hover:bg-lime-700'>Register</button>
       </form> <div className='mt-4'>
-        <h2 className='text-sm font-semibold col-12 ml-250'>Already have an account ? <Link className='text-blue-700 font-semibold' to="/">Login</Link></h2>
+        <h2 className='text-md font-semibold'>Already have an account ? <Link className='text-blue-700 font-bold hover:bg-stone-700 hover:text-white' to="/">Login</Link></h2>
       </div>
     </div>
-    </div></div>
+    </div>
   )
 }
 
