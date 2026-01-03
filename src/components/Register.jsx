@@ -15,15 +15,17 @@ function Register() {
   });
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setForm({...form, [e.target.name]: e.target.value});
-  }
 
-  async function handleRegisters(e) {
+   async function handleRegisters(e) {
     e.preventDefault();
     await axios.post(`${API}/auth/register`, form);
     navigate("/");
   }
+  function handleChange(e) {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    }
+
+ 
 
   return (
      <div className="row">
