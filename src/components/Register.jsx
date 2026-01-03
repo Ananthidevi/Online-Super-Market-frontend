@@ -21,7 +21,7 @@ function Register() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-  await axios.post(${API}/auth/register, form);
+  await axios.post(`${API}/auth/register`, form);
     navigate("/");
    
     
